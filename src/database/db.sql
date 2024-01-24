@@ -13,7 +13,8 @@ CREATE TABLE proveedores (
     telefono CHAR(9) NOT NULL
 );
 
--- ALTER TABLE articulos ADD COLUMN imagen VARCHAR(200) AFTER descripcion;
+ALTER TABLE articulos ADD COLUMN imagen VARCHAR(200) AFTER precio;
+ALTER TABLE proveedores ADD COLUMN imagen VARCHAR(200) AFTER telefono;
 
 -- insert into articulos(nombre,descripcion,precio) values("VESTIDO LARGO SOFT RIB - ZARA","Vestido largo de escote pico y manga larga",22.95);
 -- insert into articulos(nombre,descripcion,precio) values("LTHR HLD BTS 11 - ZARA","Zapato tipo bota tacón en piel. Detalle de tira con hebilla en el tobillo y en la parte superior de la caña. Tacón ancho. Cierre mediante cremallera lateral. Acabado en punta",249.00);

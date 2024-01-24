@@ -13,30 +13,66 @@ body {
   min-height: 100vh; 
 }
 
-main {
-  width: 800px;
-  margin: 30px auto;
-}
-
 hr, p {
   margin-bottom: 10px;
 }
 
+/* 
+Diseño de esqueleto de precarga CSS
+- https://www.youtube.com/watch?v=ZVug65gW-fc
+*/
+.skeleton {
+  opacity: .7;
+  animation: skeleton-loading 2s linear infinite alternate;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: hsl(200, 20%, 70%);
+  }
+  100% {
+    background-color: hsl(200, 20%, 95%);
+  }
+}
+
+.skeleton-p {
+  width: 200px; /*minmax(50%, 200px);*/
+  height: 1.2rem;
+  border-radius: .125rem;
+  margin-bottom: 10px;
+}
+
+.skeleton-a {
+  display: inline-block;
+  width: 125px;
+  height: 1.8rem;
+  margin: 1px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+main {
+  max-width: 800px;
+  margin: 30px auto;
+}
+
+
+
 a.enlace {
   text-decoration: none;
   color: black;
-  background-color: rgb(219, 219, 219);
+  background-color: rgb(236, 245, 248);
   margin: 2px;
   padding: 5px;
   border-radius: 5px;
   box-shadow: 0 0 2px gray;
   display: inline-block;
-  text-align: right;
+  text-align: center;
 }
 
 a.enlace:hover {
   color: white;
-  background-color: rgb(139, 132, 0);
+  background-color: rgb(0, 0, 0);
   box-shadow: 1px 1px 2px gray;
 }
 
@@ -77,15 +113,67 @@ section.not-found img {
   margin: 0 auto;
 }
 
-fieldset {
+form {
   display: flex;
-  flex-direction: column;
-  padding: 20px;
+  align-items: stretch;
 }
 
-input, button {
-  margin: 5px 0;
+.visualizador{
+  display:flex;
+  flex-direction: row;
+}
+
+form img, div img {
+  height: 300px;
+  width:50%;
+  aspect-ratio: 1;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  transform-origin: left top;
+  transition: 0.9s 0.5s;
+}
+
+.botones{
+  align-items: center;
+  /* display: flex;
+  flex-direction: column; */
+}
+
+.texto{
+  margin-top: 10px;
+  width: 80%;
+}
+
+.datos {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  padding: 20px;
+  background-color:  lightgray;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  justify-content:space-evenly;
+  align-items: center;
+}
+
+form .datos fieldset{
+  width: 100%;
+}
+
+form fieldset {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 3;
+  border: none;
+}
+
+input {
   padding: 8px;
+}
+
+button {
+  padding: 8px;
+  margin-top: 20px;
 }
 
 
@@ -96,9 +184,28 @@ footer {
 }
 
 
-@media (width <= 800px)  {
+@media (width <= 640px)  {
   main {
-    width: 100%;
-    margin: 20px 0;
+    max-width: 350px;
+    margin: 20px auto;
   }
+  form {
+    flex-direction: column;
+  }
+
+  form img {
+    width: 100%;
+    height: initial;
+    aspect-ratio: 1;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  }
+
+  form .datos {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+  }
+
 }

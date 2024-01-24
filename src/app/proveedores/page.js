@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import Proveedor from '@/components/Proveedor'
+import Proveedor from '@/components/Proveedores'
 import { getProveedores } from '@/lib/actions'
 
 export default async function Home() {

@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import Articulo from '@/components/Articulo'
+import Articulos from '@/components/Articulos'
 import { getArticulos } from '@/lib/actions'
 
 export default async function Home() {
@@ -11,7 +11,7 @@ export default async function Home() {
             <Link className='enlace' href="/articulos/new"> Nuevo artículo </Link>
             {
                 articulos.map((articulo) => (
-                    <Articulo key={articulo.id} articulo={articulo} >
+                    <Articulos key={articulo.id} articulo={articulo} >
                         <Link
                             className='enlace'
                             href={{ pathname: '/articulos/edit', query: { id: articulo.id } }}>
@@ -22,7 +22,7 @@ export default async function Home() {
                             href={{ pathname: '/articulos/delete', query: { id: articulo.id } }}>
                             Eliminar artículo
                         </Link>
-                    </Articulo>
+                    </Articulos>
                 ))
             }
         </div>
