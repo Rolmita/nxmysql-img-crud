@@ -152,7 +152,7 @@ export async function editProveedor(formData) {
       const imagen = await imgCreate(file, subcarpeta)
       const results = await db.query(query, [{ nombre, telefono, imagen }, id]);
     } else {
-      const results = await db.query(query, [{ nombre, telefono, imagen }, id]);
+      const results = await db.query(query, [{ nombre, telefono }, id]);
     }
   } catch (error) {
     console.log(error);
